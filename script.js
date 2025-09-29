@@ -1,4 +1,4 @@
-const levels = document.querySelectorAll("#level-map .level");
+const levels = document.querySelectorAll("#levelmap .level");
 
 levels.forEach(level => {
   level.addEventListener("click", () => {
@@ -10,7 +10,7 @@ levels.forEach(level => {
 });
 
 function completeLevel(levelNum) {
-  const nextLevel = document.querySelector(`#level-map .level[data-level="${levelNum + 1}"]`);
+  const nextLevel = document.querySelector(`#levelmap .level[data-level="${levelNum + 1}"]`);
   if (nextLevel && nextLevel.classList.contains("locked")) {
     nextLevel.classList.remove("locked");
     nextLevel.classList.add("unlocked");
@@ -21,7 +21,7 @@ function completeLevel(levelNum) {
 window.onload = () => {
   const completedLevel = parseInt(localStorage.getItem("completedLevel")) || 0;
   for (let i = 1; i <= completedLevel + 1; i++) {
-    const level = document.querySelector(`#level-map .level[data-level="${i}"]`);
+    const level = document.querySelector(`#levelmap .level[data-level="${i}"]`);
     if (level) {
       level.classList.remove("locked");
       level.classList.add("unlocked");
